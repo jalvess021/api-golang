@@ -23,7 +23,7 @@ func (r *ProductRepositoryPgsql) Create(product *product.ProductEntity) error {
 	return nil
 }
 
-func (r *ProductRepositoryPgsql) findAll() ([]*product.ProductEntity, error) {
+func (r *ProductRepositoryPgsql) FindAll() ([]*product.ProductEntity, error) {
 	rows, err := r.DB.Query("select * from products")
 
 	if err != nil {

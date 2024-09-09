@@ -1,6 +1,6 @@
 package product
 
-type ProductRepository interface{
+type ProductRepositoryInterface interface{
 	Create(product *ProductEntity) error
 	FindAll() ([]*ProductEntity, error)
 }
