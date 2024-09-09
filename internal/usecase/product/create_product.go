@@ -14,12 +14,16 @@ type CreateProductOutputDto struct{
 }
 
 type CreateProductUsecase struct {
-	ProductRepository product.ProductRepository
+	ProductRepositoryInterface product.ProductRepositoryInterface 
+}
+
+func NewCreateProductUseCase(ProductRepositoryInterface product.ProductRepositoryInterface) *CreateProductUsecase {
+	return &CreateProductUsecase{ProductRepositoryInterface: ProductRepositoryInterface}
 }
 
 func (u *CreateProductUsecase) Execute(input CreateProductInputDto) (*CreateProductOutputDto, error){
 	product := product.NewProduct(input.Name, input.Price)
-	err := u.ProductRepository.Create(product)
+	err := u.ProductRepositoryInterface.Create(product)
 	if err != nil {
 		return nil, err
 	}

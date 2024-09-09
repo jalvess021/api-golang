@@ -9,15 +9,15 @@ type ListProductsOutputDto struct{
 }
 
 type ListProductsUseCase struct{
-	ProductRepository product.ProductRepository
+	ProductRepositoryInterface product.ProductRepositoryInterface
 }
 
-func NewListProductsUseCase(productRepository product.ProductRepository) *ListProductsUseCase {
-	return &ListProductsUseCase{ProductRepository: productRepository}
+func NewListProductsUseCase(productRepositoryInterface product.ProductRepositoryInterface) *ListProductsUseCase {
+	return &ListProductsUseCase{ProductRepositoryInterface: productRepositoryInterface}
 }
 
 func (u *ListProductsUseCase) Execute() ([]*ListProductsOutputDto, error) {
-	products, err := u.ProductRepository.FindAll()
+	products, err := u.ProductRepositoryInterface.FindAll()
 	if err != nil {
 		return nil, err
 	}
