@@ -7,9 +7,9 @@ import(
 // Ler e receber dados do Kafka
 func Consume(topics []string, servers string, msgChan chan *kafka.Message)  {
 	kafkaConsumer, err := kafka.NewConsumer(&kafka.ConfigMap{
-		"boostrap.servers": servers,
+		"bootstrap.servers": servers,
 		"group.id": "api-golang",
-		"auto.ooffset.reset": "earliest",
+		"auto.offset.reset": "earliest",
 	})
 	
 	if err != nil {
