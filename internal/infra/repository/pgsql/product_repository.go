@@ -14,7 +14,8 @@ func NewProductRepositoryPgsql(db *sql.DB) *ProductRepositoryPgsql {
 }
 
 func (r *ProductRepositoryPgsql) Create(product *product.ProductEntity) error {
-	_, err := r.DB.Exec("INSERT into products (id, name, price) values(?, ?, ?)", product.ID, product.Name, product.Price)
+	query := "INSERT INTO products (id, name, price) VALUES ($1, $2, $3)"
+	_, err := r.DB.Exec(query, product.ID, product.Name, product.Price)
 
 	if err != nil{
 		return err
