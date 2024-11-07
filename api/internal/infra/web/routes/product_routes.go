@@ -2,10 +2,10 @@ package routes
 
 import (
 	"database/sql"
-	"github.com/jalvess021/api-golang/internal/infra/repository/pgsql"
+	"github.com/jalvess021/api-golang/api/internal/infra/repository/pgsql"
 	"github.com/go-chi/chi/v5"
-	"github.com/jalvess021/api-golang/internal/infra/web/handlers"
-	"github.com/jalvess021/api-golang/internal/usecase/product"
+	"github.com/jalvess021/api-golang/api/internal/infra/web/handlers"
+	"github.com/jalvess021/api-golang/api/internal/usecase/product"
 )
 
 func SetupProductRoutes(db *sql.DB) chi.Router{

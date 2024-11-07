@@ -1,4 +1,4 @@
-module github.com/jalvess021/api-golang
+module github.com/jalvess021/api-golang/api
 
 go 1.23.0
 

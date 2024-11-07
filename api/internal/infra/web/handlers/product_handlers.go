@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"fmt"
-	"github.com/jalvess021/api-golang/internal/usecase/product"
+	"github.com/jalvess021/api-golang/api/internal/usecase/product"
 )
 
 type ProductHandlers struct {

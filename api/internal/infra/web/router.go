@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/jalvess021/api-golang/internal/infra/web/routes"
+	"github.com/jalvess021/api-golang/api/internal/infra/web/routes"
 )
 
 func SetupRoutes(r *chi.Mux, db *sql.DB)  {

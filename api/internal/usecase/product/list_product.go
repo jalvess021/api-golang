@@ -1,6 +1,6 @@
 package usecase
 
-import "github.com/jalvess021/api-golang/internal/domain/product"
+import "github.com/jalvess021/api-golang/api/internal/domain/product"
 
 type ListProductsOutputDto struct{
 	ID string

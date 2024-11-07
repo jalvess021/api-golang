@@ -2,7 +2,7 @@ package repository
 
 import (
 	"database/sql"
-	"github.com/jalvess021/api-golang/internal/domain/product"
+	"github.com/jalvess021/api-golang/api/internal/domain/product"
 )
 
 type ProductRepositoryPgsql struct {

@@ -2,7 +2,7 @@ package db
 
 import (
 	"database/sql"
-	"github.com/jalvess021/api-golang/config"
+	"github.com/jalvess021/api-golang/api/config"
 	_ "github.com/lib/pq"
 )
 

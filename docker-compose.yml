@@ -1,6 +1,6 @@
 services:
   goapp:
-    build: .
+    build: './api'
     volumes:
       - .:/go/app
     platform: linux/amd64
@@ -10,6 +10,8 @@ services:
       - db
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    networks:
+      - api-golang-network
 
   db:
     image: postgres:latest
@@ -22,6 +24,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - api-golang-network
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
@@ -30,6 +34,8 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - api-golang-network
 
   kafka:
     image: confluentinc/cp-kafka:latest
@@ -46,6 +52,12 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    networks:
+      - api-golang-network
 
 volumes:
   postgres_data:
+
+networks:
+  api-golang-network:
+    driver: bridge

@@ -4,12 +4,12 @@ import (
 	"encoding/json"
 	"net/http"
 	"github.com/confluentinc/confluent-kafka-go/kafka"
-	"github.com/jalvess021/api-golang/internal/db" // Atualize o caminho conforme a sua estrutura de diretórios
-	"github.com/jalvess021/api-golang/internal/infra/akafka"
+	"github.com/jalvess021/api-golang/api/internal/db" // Atualize o caminho conforme a sua estrutura de diretórios
+	"github.com/jalvess021/api-golang/api/internal/infra/akafka"
 	"github.com/go-chi/chi/v5"
-	"github.com/jalvess021/api-golang/internal/infra/web"
-	"github.com/jalvess021/api-golang/internal/usecase/product" 
-	"github.com/jalvess021/api-golang/internal/infra/repository/pgsql"
+	"github.com/jalvess021/api-golang/api/internal/infra/web"
+	"github.com/jalvess021/api-golang/api/internal/usecase/product" 
+	"github.com/jalvess021/api-golang/api/internal/infra/repository/pgsql"
 )
 
 func main() {
