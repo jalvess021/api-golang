@@ -1,0 +1,24 @@
+# Node.js
+/node_modules/
+/dist/
+/npm-debug.log
+/yarn-error.log
+/package-lock.json
+/yarn.lock
+
+# Logs
+*.log
+
+# VSCode
+.vscode/
+
+# IDEs e editores em geral
+.idea/
+.DS_Store
+
+# Arquivos temporários
+*.swp
+*.swo
+
+# Pastas específicas do Vue
+/.nuxt/
