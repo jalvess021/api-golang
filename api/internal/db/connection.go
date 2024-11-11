@@ -7,10 +7,6 @@ import (
 )
 
 func ConnectDb() (*sql.DB, error) {
-	// Carregar variáveis de ambiente
-	if err := config.LoadEnv(); err != nil {
-		return nil, err
-	}
 
 	connStr := config.GetDatabaseURL()
 

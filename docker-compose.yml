@@ -1,8 +1,10 @@
 services:
-  goapp:
+  api:
+    env_file:
+        - .env
     build: './api'
     volumes:
-      - .:/go/app
+      - ./api:/go/app
     platform: linux/amd64
     ports:
       - "8282:8282"
@@ -14,6 +16,8 @@ services:
       - api-golang-network
 
   db:
+    env_file:
+      - .env
     image: postgres:latest
     container_name: postgres_db
     environment:
@@ -52,6 +56,16 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    networks:
+      - api-golang-network
+
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend:/vue/app
+    ports:
+      - "8181:80"
     networks:
       - api-golang-network
 

@@ -3,14 +3,8 @@ package config
 import (
 	"fmt"
 	"os"
-	"path/filepath"
-	"github.com/joho/godotenv"
 )
 
-func LoadEnv() error {
-	envPath := filepath.Join("..", ".env") 
-	return godotenv.Load(envPath)
-}
 
 func GetDatabaseURL() string {
 	// Lendo variáveis de ambiente
