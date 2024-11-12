@@ -1,13 +1,14 @@
-# API Golang com Kafka 🚀
+# KARTKA: Plataforma de E-commerce com Microsserviços para Gestão de Pedidos e Estoque 🚀
 
-Este projeto demonstra uma API robusta e escalável construída em **Go** com **Kafka**, utilizando **Clean Architecture**. A API consome mensagens de Kafka para gerar e gerenciar dados de **produtos** de maneira assíncrona. O frontend é desenvolvido com **Vue.js** e **TypeScript** para exibir os produtos interativamente.
+Kartka é uma aplicação de e-commerce robusta e escalável, construída com uma arquitetura de microsserviços. O backend é desenvolvido em **Go** e utiliza o **Kafka** para gerenciar mensagens de forma assíncrona, proporcionando uma experiência de compra ágil e confiável. A arquitetura Clean Architecture é adotada para garantir a manutenibilidade e escalabilidade da aplicação. O frontend, desenvolvido com **Vue.js** e **TypeScript**, permite uma interação fluida e dinâmica, oferecendo aos usuários a funcionalidade completa de um carrinho de compras.
 
 ## Funcionalidades ✨
 
-- **API em Golang**: Gerenciamento de produtos e consumo de mensagens do Kafka.
-- **Integração com Kafka**: Processamento assíncrono de dados.
-- **Frontend Vue.js + TypeScript**: Interface interativa para exibição dos produtos.
-- **Clean Architecture**: Código organizado e escalável.
+- **Cadastro e Gerenciamento de Produtos**: API em Go para criar e gerenciar dados de produtos, com processamento assíncrono via Kafka.
+- **Carrinho de Compras Interativo**: O frontend em Vue.js permite que usuários adicionem produtos ao carrinho e prossigam para o checkout.
+- **Reserva Temporária de Estoque**: Um microsserviço dedicado reserva o produto durante o processo de checkout, liberando-o se o pagamento não for realizado em 10 minutos.
+- **Processamento de Mensagens com Kafka**: Assincronicidade e escalabilidade com mensageria para pedidos e reservas de estoque.
+- **Clean Architecture**: Código bem organizado, modular e altamente manutenível.
 
 ## Tecnologias Utilizadas 🛠
 
