@@ -25,26 +25,40 @@ Além disso, a aplicação utiliza Injeção de Dependências (DI) para garantir
 
 ## Passo a Passo 🏃‍♂️
 
-1. **Mesmo que mantenha o DB padrão (POSTGRES) da aplicação, ainda é necessário configurá-lo.**
+1. **Clonar o Repositório em seu ambiente local:**
+```bash
+  git clone https://github.com/jalvess021/kartka.git
+  cd kartka
+```
+2. **Copie o arquivo `.env.example` para `.env` para configurar as variáveis de ambiente:**
+```bash
+  cp .env.example .env
+```
+3. **Se você estiver utilizando o PostgreSQL localmente, acesse o terminal do banco de dados e crie o banco:**
+```bash
+  psql -U seu_usuario
+```
+   Depois, crie o banco de dados:
+```sql
+  CREATE DATABASE kartka;
+```
+   Agora, crie a tabela `products`:
 ```sql
   CREATE TABLE products (
-      ID UUID PRIMARY KEY,
-      Name VARCHAR(255) NOT NULL,
-      Price NUMERIC(10, 2) NOT NULL
-  );
+    ID UUID PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Price NUMERIC(10, 2) NOT NULL
+);
 ```
-
-
-
-2. **Subir os Containers (Kafka, Zookeeper, PostgreSQL, API e Frontend):**
+4. **Subir os Containers (Kafka, Zookeeper, PostgreSQL, API e Frontend):**
 ```bash
   docker-compose up -d
 ```
-3. **Acesse o container do KAFKA e crie o Tópico "product":**
+5. **Acesse o container do KAFKA e crie o Tópico "product":**
 ```bash
   kafka-topics --bootstrap-server localhost:9092 --create --topic product --if-not-exists
 ```
-4. **Entre no container da API e execute o servidor:**
+6. **Entre no container da API e execute o servidor:**
 ```bash
   go run cmd/main.go
 ```
