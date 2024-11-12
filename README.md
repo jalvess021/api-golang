@@ -18,7 +18,7 @@ Kartka é uma aplicação de e-commerce robusta e escalável, construída com um
 - **PostgreSQL** Persistência de dados.
 - **Docker** Ambiente de desenvolvimento isolado e consistente.
 
-## Arquitetura Limpa + DI 🧩
+## Arquitetura Limpa + (DI) Injeção de Dependências 🧩
 A aplicação segue o padrão Clean Architecture, com a divisão clara de responsabilidades entre camadas. 
 Além disso, a aplicação utiliza Injeção de Dependências (DI) para garantir que as dependências entre os componentes sejam gerenciadas de forma flexível e desacoplada. Isso facilita a manutenção, os testes unitários e a escalabilidade do sistema.
 
