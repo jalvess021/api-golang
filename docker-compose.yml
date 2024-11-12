@@ -9,17 +9,16 @@ services:
     ports:
       - "8282:8282"
     depends_on:
-      - db
+      - db_postgres
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
-      - api-golang-network
+      - kartka-network
 
-  db:
+  db_postgres:
     env_file:
       - .env
     image: postgres:latest
-    container_name: postgres_db
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -29,7 +28,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - api-golang-network
+      - kartka-network
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
@@ -39,7 +38,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     networks:
-      - api-golang-network
+      - kartka-network
 
   kafka:
     image: confluentinc/cp-kafka:latest
@@ -57,7 +56,7 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     networks:
-      - api-golang-network
+      - kartka-network
 
   frontend:
     build:
@@ -67,11 +66,11 @@ services:
     ports:
       - "8181:80"
     networks:
-      - api-golang-network
+      - kartka-network
 
 volumes:
   postgres_data:
 
 networks:
-  api-golang-network:
+  kartka-network:
     driver: bridge

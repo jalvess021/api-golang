@@ -2,7 +2,8 @@ package repository
 
 import (
 	"database/sql"
-	"github.com/jalvess021/api-golang/api/internal/domain/product"
+
+	"github.com/jalvess021/kartka/api/internal/domain/product"
 )
 
 type ProductRepositoryPgsql struct {
@@ -17,7 +18,7 @@ func (r *ProductRepositoryPgsql) Create(product *product.ProductEntity) error {
 	query := "INSERT INTO products (id, name, price) VALUES ($1, $2, $3)"
 	_, err := r.DB.Exec(query, product.ID, product.Name, product.Price)
 
-	if err != nil{
+	if err != nil {
 		return err
 	}
 

@@ -2,20 +2,21 @@ package handlers
 
 import (
 	"encoding/json"
-	"net/http"
 	"fmt"
-	"github.com/jalvess021/api-golang/api/internal/usecase/product"
+	"net/http"
+
+	usecase "github.com/jalvess021/kartka/api/internal/usecase/product"
 )
 
 type ProductHandlers struct {
 	CreateProductUseCase *usecase.CreateProductUsecase
-	ListProductUseCase *usecase.ListProductsUseCase
+	ListProductUseCase   *usecase.ListProductsUseCase
 }
 
-func NewProductHandlers(createProductUseCase *usecase.CreateProductUsecase, listProductUseCase *usecase.ListProductsUseCase) *ProductHandlers{
+func NewProductHandlers(createProductUseCase *usecase.CreateProductUsecase, listProductUseCase *usecase.ListProductsUseCase) *ProductHandlers {
 	return &ProductHandlers{
 		CreateProductUseCase: createProductUseCase,
-		ListProductUseCase: listProductUseCase,
+		ListProductUseCase:   listProductUseCase,
 	}
 }
 

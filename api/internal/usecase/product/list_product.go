@@ -1,14 +1,14 @@
 package usecase
 
-import "github.com/jalvess021/api-golang/api/internal/domain/product"
+import "github.com/jalvess021/kartka/api/internal/domain/product"
 
-type ListProductsOutputDto struct{
-	ID string
-	Name string
+type ListProductsOutputDto struct {
+	ID    string
+	Name  string
 	Price float64
 }
 
-type ListProductsUseCase struct{
+type ListProductsUseCase struct {
 	ProductRepositoryInterface product.ProductRepositoryInterface
 }
 
@@ -23,10 +23,10 @@ func (u *ListProductsUseCase) Execute() ([]*ListProductsOutputDto, error) {
 	}
 
 	var productsOutput []*ListProductsOutputDto
-	for _, product := range products{
+	for _, product := range products {
 		productsOutput = append(productsOutput, &ListProductsOutputDto{
-			ID: product.ID,
-			Name: product.Name,
+			ID:    product.ID,
+			Name:  product.Name,
 			Price: product.Price,
 		})
 	}
